@@ -1,0 +1,1 @@
+<h1 class="quote">{{ $heading }}</h1>
