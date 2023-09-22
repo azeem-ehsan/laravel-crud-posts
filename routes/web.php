@@ -45,6 +45,14 @@ Route::get('/about', function () {
 Route::get('/user/create', function () {
     return view('user.create', ['heading' => 'Sign Up Page']);
 })->name('create-user');
+Route::get('/login', function () {
+    return view('user.signin', ['heading' => 'Sign In']);
+})->name('login');
+
+
+
 
 // Route::post('/blog/create', [PostController::class, 'store_user'])->name('user.store');
 Route::post('/user/create', [UserController::class, 'store'])->name('userstore');
+Route::post('/user/auth', [UserController::class, 'authuser'])->name('usercheck');
+Route::post('/user/logout', [UserController::class, 'LogOut'])->name('logout');

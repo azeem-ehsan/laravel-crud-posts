@@ -1,6 +1,27 @@
 @extends('layout.master')
 @section('title' , 'Create Blog')
+
+
+
 @section('content')
+
+
+@if(Session::has('username')  == false)
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="alert alert-danger">You are not signed in. Please <a href="{{ route('login') }}">sign in</a>.</div>
+        </div>
+    </div>
+    
+    <!-- redirect to the login page -->
+    @php
+        return redirect()->route('login');
+        exit; // to prevent any further rendering of the view
+    @endphp
+
+@endif
+
     <div class="row">
         <div class="col-sm-4"></div>
         <div class="col-sm-4">
@@ -26,4 +47,5 @@
         </div>
         <div class="col-sm-4"></div>
     </div>
+    
 @endsection

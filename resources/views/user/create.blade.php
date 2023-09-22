@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('title', 'About')
+@section('title', 'Sign Up')
 
 @section('content')
     <div class="row mt-5">
@@ -20,7 +20,7 @@
                 <div class="mb-3">
                     <label for="password" class="form-label">Password:</label>
                     <input type="text"
-                      class="form-control" name="password" id="password" aria-describedby="helpId" placeholder="Enter an password">
+                      class="form-control" name="password" id="password" aria-describedby="helpId" placeholder="Enter a password">
                 </div>
                 
                 <button type="submit" class="btn btn-primary w-100">Sign Up</button>

@@ -35,7 +35,29 @@ class UserController extends Controller
         $user->email = $email;
         $user->password = $password;
         $user->save(); //Insert data in the blogs table
-        return redirect()->route('blog.index')->with('success', 'Signed-In successfully.');
+        return redirect()->route('login')->with('sign-up', 'Signed-Up successfully.');
+    }
+    // when User Login
+    public function authuser(Request $request)
+    {
+        $email = $request->input('email');
+        $password = $request->input('password');
+        // return "username:$username, Description: $description";
+
+        $user = User::where('email', $email)->where('password', $password)->first();    // first() will return the first record
+
+        if($user == null)
+            return redirect()->route('login')->with('error', 'Email or Password is incorrect...!!');
+
+        // Store the username in a session variable
+        session(['username' => $user->username]);
+
+        return redirect()->route('blog.index')->with('sign-in', 'Signed-In successfully.');
+    }
+    public function LogOut(Request $request)
+    {
+        $request->session()->forget('username');
+        return redirect()->route('login')->with('sign-out', 'Please Login Again....');
     }
     
     // public function store_user(Request $request)
