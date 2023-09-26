@@ -16,7 +16,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [PostController::class, 'index'])->name('blog.index');
+
+
+//---------- User Routes
+Route::get('/', function () {
+    return view('user.create', ['heading' => 'Sign Up Page']);
+})->name('create-user');
+Route::get('/login', function () {
+    return view('user.signin', ['heading' => 'Sign In']);
+})->name('login');
+
+
+// ------------ Post Routes
+Route::get('/posts', [PostController::class, 'index'])->name('blog.index');
 
 Route::get('/blogs/{id}', [PostController::class, 'show'])->name('blog.show');
 
@@ -41,13 +53,8 @@ Route::get('/about', function () {
 
 
 
-// User Routes
-Route::get('/user/create', function () {
-    return view('user.create', ['heading' => 'Sign Up Page']);
-})->name('create-user');
-Route::get('/login', function () {
-    return view('user.signin', ['heading' => 'Sign In']);
-})->name('login');
+
+
 
 
 

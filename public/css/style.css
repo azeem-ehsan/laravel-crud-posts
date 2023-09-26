@@ -8,3 +8,137 @@ body {
     max-width: 240px;
     max-height: 240px;
 }
+.navbar-brand{
+    color: #9552ff !important;
+    font-size: 2.5rem;
+    font-weight: 600;
+    cursor: not-allowed;
+    /* font-family: 'Ubuntu', sans-serif; */
+    font-family: 'Skranji', sans-serif;
+
+    font-variant: small-caps;
+    text-transform: capitalize;
+    letter-spacing: 4.8px;
+    word-spacing: 1rem;
+    text-shadow: #9552ff75 5px 5px 11px;
+}   
+.navbar{
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 3px -13px 20px 20px #00000024;
+}
+.nav-link{
+    font-weight: 600;
+    animation: .3s ease-in-out 0s 1 slideInFromLeft;
+}
+.nav-link:hover{
+    color: #7758ff !important;
+}
+.btn{
+    background-color: #9552ff !important;
+    color: #fff;
+    /* border: 3.300000000000009px solid #3f00a36b !important; */
+    border: none;
+    padding: 7px 20px;
+    border-radius: 19px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 2px;
+    box-shadow:  #9552ff75 5px 5px 11px;
+    animation: .2s ease-in-out ;
+}
+.btn:hover{
+    background-color: #8349e0 !important;
+    color: #fff;
+}
+.btn.btn-danger{
+    background-color: #ff5252 !important;
+    box-shadow:  #ff52528a 5px 5px 11px;
+}
+.btn.btn-danger:hover{
+    background-color: #e73232 !important;
+}
+.btn.btn-like{
+    background-color: #529bff!important;
+    box-shadow: #529bff87 1px 7px 13px;
+    padding: 0 0 0 3px;
+    border-radius: 50%;
+    height: 3rem;
+    width: 3rem;
+}
+.btn.btn-like:hover{
+    background-color: #498ae6!important;
+}
+
+/* Post CSS */
+
+.card {
+    border: none;
+    border-radius: 10px
+}
+
+.c-details span {
+    font-weight: 300;
+    font-size: 13px
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    background-color: #eee;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 39px;
+    /* background-image: "./images/profile.jpg"; */
+    /* background-image: "https://cdn-icons-png.flaticon.com/512/5987/5987424.png"; */
+    /* background-image: url("https://cdn-icons-png.flaticon.com/512/5987/5987424.png"); */
+}
+
+.badge span {
+    background-color: #eeecff;
+    width: 60px;
+    height: 25px;
+    padding-bottom: 3px;
+    border-radius: 5px;
+    display: flex;
+    color: #955dfe;
+    justify-content: center;
+    align-items: center
+}
+
+.progress {
+    height: 10px;
+    border-radius: 10px
+}
+
+.progress div {
+    background-color: red
+}
+
+.text1 {
+    font-size: 14px;
+    font-weight: 600
+}
+
+.text2 {
+    color: #a5aec0
+}
+.post-image{
+    height: 18em;
+    overflow: hidden;
+    text-align: center;
+}
+.post-image > img{
+    object-fit: cover;
+    width: fit-content;
+    height: 100%;
+    border-radius: 10px;
+}
+.card .icon img{
+    width: 100% !important;
+    height: 100% !important;
+}
+.post.card{
+    border: 2px solid #c6c6c6;
+}

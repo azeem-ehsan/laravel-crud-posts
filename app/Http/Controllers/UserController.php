@@ -8,55 +8,99 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    //
     //SEVEN RESTFUL RESOURCE CONTROLLER METHODS
     // public function index()
     // {
-    //     $posts = Post::all();
-    //     return view('home', ['heading' => 'View all Posts', 'posts' => $posts]);
+    //     $users = User::all();
+    //     return view('home', ['heading' => '', 'users' => $users]);
     // }
     // public function show($id)
     // {
-    //     $blog = Post::find($id);
-    //     return view('blog', ['heading' => 'Show a Blog', 'blog' => $blog]);
+    //     $user = User::find($id);
+    //     return view('blog', ['heading' => 'Show a Blog', 'user' => $user]);
     // }
     // public function create()
     // {
     //     return view('create', ['heading' => 'Create a Blog']);
     // }
+
+
+
+
+    // public function store(Request $request)
+    // {
+    //     $username = $request->input('username');
+    //     $email = $request->input('email');
+    //     $password = $request->input('password');
+    //     // return "username:$username, Description: $description";
+    //     $user = new User();
+    //     $user->username = $username;   // not created yet
+    //     $user->email = $email;
+    //     $user->password = $password;
+    //     $user->save(); //Insert data in the blogs table
+    //     return redirect()->route('login')->with('sign-up', 'Signed-Up successfully.');
+    // }
+
     public function store(Request $request)
     {
         $username = $request->input('username');
         $email = $request->input('email');
         $password = $request->input('password');
-        // return "username:$username, Description: $description";
+
+        // Create the user
         $user = new User();
-        $user->username = $username;   // not created yet
+        $user->username = $username;
         $user->email = $email;
-        $user->password = $password;
-        $user->save(); //Insert data in the blogs table
-        return redirect()->route('login')->with('sign-up', 'Signed-Up successfully.');
-    }
-    // when User Login
-    public function authuser(Request $request)
-    {
-        $email = $request->input('email');
-        $password = $request->input('password');
-        // return "username:$username, Description: $description";
+        $user->password = bcrypt($password); // Hash the password
 
-        $user = User::where('email', $email)->where('password', $password)->first();    // first() will return the first record
+        // Save the user to the database
+        $user->save();
 
-        if($user == null)
-            return redirect()->route('login')->with('error', 'Email or Password is incorrect...!!');
+
+        // Store the user's ID in the session
+        session(['user_id' => $user->id]);      // --- this is the user_id of the user who is logged in and we will use it when creating a Post
 
         // Store the username in a session variable
         session(['username' => $user->username]);
 
+        // Redirect to the desired page after registration (e.g., blog index)
+        return redirect()->route('blog.index')->with('sign-up', 'Signed-Up successfully.');
+    }
+
+
+
+
+    public function authuser(Request $request)
+    {
+        $email = $request->input('email');
+        $password = $request->input('password');
+
+        // checking the user in the DB
+        $user = User::where('email', $email)->first();  // this will return the first user with the given email
+
+
+        // this checks if User is Null      or      the Password is incorrect
+        if (!$user || !password_verify($password, $user->password)) {
+            // User authentication failed
+            return redirect()->route('login')->with('error', 'Email or Password is incorrect...!!');
+        }
+
+        // Store the user's ID in the session
+        session(['user_id' => $user->id]);      // --- this is the user_id of the user who is logged in and we will use it when creating a Post
+
+        // Store the username in a session variable
+        session(['username' => $user->username]);
+
+        // return to the Posts page with a success message
         return redirect()->route('blog.index')->with('sign-in', 'Signed-In successfully.');
     }
+
     public function LogOut(Request $request)
     {
+        // removing the "user_id" and "username" from the session
+        $request->session()->forget('user_id');
         $request->session()->forget('username');
+
         return redirect()->route('login')->with('sign-out', 'Please Login Again....');
     }
     

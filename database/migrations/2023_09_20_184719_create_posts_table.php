@@ -15,14 +15,14 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            // $table->unsignedBigInteger('user_id'); // Foreign key
             $table->text('title');
             $table->string('image_url');
-            $table->string('post_description');
+            $table->string('post_content');
             $table->timestamps();
-
+            
             // Define foreign key relationship
-            // $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('user_id'); // craeting a user_id column
+            $table->foreign('user_id')->references('id')->on('users');  // making user_id a Foreign key
         });
     }
 

@@ -1,11 +1,12 @@
-<nav class="navbar navbar-expand-lg bg-dark bg-body-tertiary" data-bs-theme="dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Game Heaven</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+<nav class="navbar navbar-expand-lg  bg-body-tertiary  mb-5" data-bs-theme="">
+  <div class="container-fluid flex-wrap">
+    <h1 class="navbar-brand col-12 text-center" href="#"><i class="fas fa-chess-king"></i> Game Heaven <i class="fas fa-gamepad"></i></h1>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+
+        <ul class="navbar-nav m-auto w-50 mb-2 mb-lg-0 d-flex justify-content-between">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{{route('blog.index')}}">Home</a>
           </li>
