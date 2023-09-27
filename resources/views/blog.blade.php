@@ -2,7 +2,7 @@
 @section('title' , "Blog")
 @section('content')
     <div class="col-md-8 m-auto my-5">
-            <div class="post card p-3 mb-2">
+            <div class="post card p-3 mb-4">
                 <div class="d-flex justify-content-between">
                     <div class="d-flex flex-row align-items-center">
                         <div class="icon"> 
@@ -32,12 +32,12 @@
                             <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50"
                                 aria-valuemin="0" aria-valuemax="100"></div>
                         </div> -->
-                        <div class="mt-3">
+                        <!-- <div class="mt-3">
                             <button class="btn btn-like">
                                 <i class="fa fa-thumbs-up" aria-hidden="true"></i>
                             </button>
                             <span class="text1">55 Likes <span class="text2">of 50 capacity</span></span> </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         @if($post->user->username == session('username'))
@@ -48,6 +48,6 @@
             </div>
         @endif
     </div>
-    <a href="{{route('blog.index')}}" class="btn btn-info">Go back to Home Page</a>
+    <a href="{{route('blog.index')}}" class="btn btn-info"> <i class="fas fa-arrow-left"></i> Home Page</a>
 
 @endsection

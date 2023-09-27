@@ -22,8 +22,8 @@ return new class extends Migration
             
             // Define foreign key relationship
             $table->unsignedBigInteger('user_id'); // craeting a user_id column
-            $table->foreign('user_id')->references('id')->on('users');  // making user_id a Foreign key
-        });
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');  // making user_id a Foreign key
+        });                                                            //  && onDelete('cascade') if user is deleted then delete all the posts of that user
     }
 
     /**

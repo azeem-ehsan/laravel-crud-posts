@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-// use App\Models\Blog;
+
+// -------- Sel Added 
 use App\Models\Post;
+use App\Models\Comment;
 
 
 class PostController extends Controller
@@ -13,7 +15,8 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
-        return view('home', ['heading' => '', 'posts' => $posts]);
+        $comments = Comment::all();
+        return view('home', ['heading' => '', 'posts' => $posts , 'comments' => $comments]);
     }
     public function show($id)
     {
@@ -61,19 +64,6 @@ class PostController extends Controller
         return redirect()->route('blog.index')->with('info', 'A Blog has been created successfully.');
     }
 
-
-    // public function store(Request $request)
-    // {
-    //     echo $request->method(); // to print the method of the request
-    //     $title = $request->input('title');
-    //     $description = $request->input('description');
-    //     // return "Title:$title, Description: $description";
-    //     $blog = new Blog();
-    //     $blog->title = $title;
-    //     $blog->description = $description;
-    //     $blog->save(); //Insert data in the blogs table
-    //     return redirect()->route('blog.index')->with('info', 'A Blog has been created successfully.');
-    // }
     public function edit($id)
     {
         $blog = Post::find($id);

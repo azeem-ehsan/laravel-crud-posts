@@ -1,3 +1,10 @@
+:root {
+    --main-bg-color: #8349e0;
+    --main-bg-color-hover: #7340c5;
+    --light-bg-color: #b384ff;
+}
+
+
 body {
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
@@ -31,7 +38,7 @@ body {
     animation: .3s ease-in-out 0s 1 slideInFromLeft;
 }
 .nav-link:hover{
-    color: #7758ff !important;
+    color: var(--main-bg-color) !important;
 }
 .btn{
     background-color: #9552ff !important;
@@ -47,7 +54,7 @@ body {
     animation: .2s ease-in-out ;
 }
 .btn:hover{
-    background-color: #8349e0 !important;
+    background-color: var(--main-bg-color-hover)  !important;
     color: #fff;
 }
 .btn.btn-danger{
@@ -97,12 +104,13 @@ body {
 
 .badge span {
     background-color: #eeecff;
-    width: 60px;
+    width: fit-content;
+    padding: 0 10px;
     height: 25px;
     padding-bottom: 3px;
     border-radius: 5px;
     display: flex;
-    color: #955dfe;
+    color: var(--main-bg-color);;
     justify-content: center;
     align-items: center
 }
@@ -140,5 +148,104 @@ body {
     height: 100% !important;
 }
 .post.card{
-    border: 2px solid #c6c6c6;
+    /* border: 2px solid #c6c6c6; */
+    /* border: 2px solid #8349e0 ; */
+    background-color: var(--main-bg-color);;
+    border-radius: 2rem;
+}
+.comment-badge-span{
+    background-color: #c19bff !important;
+    color: #fff;
+    border: none;
+    border-top-left-radius: 35rem !important;
+    border-bottom-left-radius: 35rem !important;
+    padding: 0 20px;
+}
+.comment-section .input-group .btn-primary{
+    border-top-right-radius: 35rem !important;
+    border-bottom-right-radius: 35rem !important;
+
+}
+
+.comments-container > .list-group > li.list-group-item{
+    color: #888;
+    font-family: 'Poppins', sans-serif;
+    font-size: smaller;
+    border-bottom-right-radius: 2rem !important;
+    border-top-right-radius: 2rem !important;
+    border-top-left-radius: 2rem !important;
+    border-bottom-left-radius: 2rem !important;
+    font-weight: 700 !important;
+}
+.comments-container > .list-group > li.list-group-item .badge{
+    font-size: small;
+}
+.row .alert{
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+}
+.card-header{
+    background-color: var(--main-bg-color);;
+    color: #fff;
+    font-family: 'Ubuntu', sans-serif;
+    border: none;
+}
+.post-description,
+.post-content{
+    background-color: #fff;
+    /* padding: 1.5rem; */
+    /* padding-bottom: 0.5rem; */
+    border-radius: 2rem;
+    color: var(--main-bg-color);
+    font-weight: 900;
+    font-family: 'Poppins', sans-serif;
+}
+.post-content .heading{
+    padding: 1.5rem 0 0.8rem 0;
+    text-align: center;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--main-bg-color);;
+    font-weight: 900;
+    font-family: 'Ubuntu', sans-serif;
+    letter-spacing: 2px;
+}
+.comment-section{
+    background-color: var(--main-bg-color);;
+    padding: 1.5rem;
+}
+.comment-section .input-group{
+    height: 3.5rem;
+}
+.comment-section .input-group input.form-control{
+    font-family: 'Poppins', sans-serif;
+}
+.comment-section .input-group .comment-badge-span,
+.comment-section .input-group .btn.btn-primary{
+    background-color: var(--light-bg-color) !important;
+}
+.comment-section .input-group .btn.btn-primary i{
+    animation: 1s ease !important;
+}
+.comment-section .input-group .btn.btn-primary:hover i{
+    scale: 1.4;
+}
+.post-description{
+    padding: 1.5rem;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    border-radius: 2rem;
+}
+.post-description .description-content{
+    display: inline-block;
+    margin-left: 3rem;
+}
+.post-description .description-content .description-title {
+    font-weight: 900;
+}
+.post-description .description-content p {
+    font-style: italic;
+    color: #a166ff;
 }

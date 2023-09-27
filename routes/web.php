@@ -1,9 +1,18 @@
 <?php
 
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\UserController;
+
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
+
+
+// -------- Self Added
+// For using a Controller in a route, we need to import it first
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\CommentController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +34,15 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('user.signin', ['heading' => 'Sign In']);
 })->name('login');
+
+
+// -------------------------------- Post Routes
+Route::post('/user/create', [UserController::class, 'store'])->name('userstore');
+Route::post('/user/auth', [UserController::class, 'authuser'])->name('usercheck');
+Route::post('/user/logout', [UserController::class, 'LogOut'])->name('logout');
+
+
+
 
 
 // ------------ Post Routes
@@ -51,15 +69,5 @@ Route::get('/about', function () {
     return view('about', ['heading' => 'This is About Page.']);
 })->name('about');
 
-
-
-
-
-
-
-
-
-// Route::post('/blog/create', [PostController::class, 'store_user'])->name('user.store');
-Route::post('/user/create', [UserController::class, 'store'])->name('userstore');
-Route::post('/user/auth', [UserController::class, 'authuser'])->name('usercheck');
-Route::post('/user/logout', [UserController::class, 'LogOut'])->name('logout');
+// -------- Comments Routes
+Route::post('/posts',[CommentController::class,'store'])->name('comment.store');
